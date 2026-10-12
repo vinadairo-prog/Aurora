@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+<deepwoods>
+    <article id="demo-001">
+        <kategorie>Mykorrhiza-Netzwerk</kategorie>
+        <titel>Das Wood Wide Web</titel>
+        <untertitel>Unterirdische Kommunikation zwischen Bäumen</untertitel>
+        <text>Über Mykorrhizapilze tauschen Bäume Nährstoffe und Warnsignale aus und bilden so ein verborgenes Kommunikationsnetzwerk im Waldboden.</text>
+        <tag>Wissenschaft</tag>
+    </article>
+    <article id="demo-002">
+        <kategorie>Klimafitter Mischwald</kategorie>
+        <titel>Der Wald von morgen</titel>
+        <untertitel>Resilienz durch Artenvielfalt</untertitel>
+        <text>Mischwälder mit heimischen, tiefwurzelnden Arten widerstehen Dürre und Schädlingen deutlich besser als Monokulturen.</text>
+        <tag>Ökologie</tag>
+    </article>
+
+<baumarten>
+
+
+    <baum id="001">
+        <wissenschaftlicherName>Larix decidua</wissenschaftlicherName>
+        <deutscherName>Europäische Lärche</deutscherName>
+        <oekologischerStatus>Heimisch / Schutzwaldbaum</oekologischerStatus>
+        <klimaresistenz>Hoch (Alpiner Pionierbaum)</klimaresistenz>
+        <biosemiotischerFaktor>
+            <terpenEmission>Mittel-Hoch</terpenEmission>
+            <mykorrhizaVerbindung>Stark (Ektomykorrhiza)</mykorrhizaVerbindung>
+        </biosemiotischerFaktor>
+        <kulturelleBedeutung>Symbol des Hochgebirges und der Resilienz gegenüber alpinen Extremen</kulturelleBedeutung>
+    </baum>
+
+    <baum id="002">
+        <wissenschaftlicherName>Abies alba</wissenschaftlicherName>
+        <deutscherName>Weiß-Tanne</deutscherName>
+        <oekologischerStatus>Urwald-Bestandteil (Mitteleuropa)</oekologischerStatus>
+        <klimaresistenz>Mittel-Hoch (Tiefwurzler)</klimaresistenz>
+        <biosemiotischerFaktor>
+            <terpenEmission>Hoch (Maximale Abgabe)</terpenEmission>
+            <mykorrhizaVerbindung>Sehr Stark (Tiefennetzwerk)</mykorrhizaVerbindung>
+        </biosemiotischerFaktor>
+        <kulturelleBedeutung>Träger des kollektiven Gedächtnisses im alpinen Kulturraum</kulturelleBedeutung>
+    </baum>
+
+    <baum id="003">
+        <wissenschaftlicherName>Pinus mugo</wissenschaftlicherName>
+        <deutscherName>Bergkiefer / Latschenkiefer</deutscherName>
+        <oekologischerStatus>Alpiner Erosionsschutz</oekologischerStatus>
+        <klimaresistenz>Sehr Hoch (Klimafit)</klimaresistenz>
+        <biosemiotischerFaktor>
+            <terpenEmission>Extrem Hoch</terpenEmission>
+            <mykorrhizaVerbindung>Stark (Resilienz-Netz)</mykorrhizaVerbindung>
+        </biosemiotischerFaktor>
+        <kulturelleBedeutung>Lebender Schutzschild gegen Lawinen und hocheffizienter Feinstaubfilter</kulturelleBedeutung>
+    </baum>
+
+    <baum id="004">
+        <wissenschaftlicherName>Fagus sylvatica</wissenschaftlicherName>
+        <deutscherName>Rotbuche</deutscherName>
+        <oekologischerStatus>Dominante Klimaxart (UNESCO-Weltnaturerbe)</oekologischerStatus>
+        <klimaresistenz>Mittel (Sensibel auf extreme Dürre)</klimaresistenz>
+        <biosemiotischerFaktor>
+            <terpenEmission>Mittel</terpenEmission>
+            <mykorrhizaVerbindung>Extrem Stark (Mutterbaum-Netzwerk)</mykorrhizaVerbindung>
+        </biosemiotischerFaktor>
+        <kulturelleBedeutung>Das grüne Meer Mitteleuropas und das Herz des Wood Wide Web</kulturelleBedeutung>
+    </baum>
+</baumarten>
+</deepwoods> 

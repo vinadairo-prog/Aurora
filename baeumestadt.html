@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurora - Bäume und Stadt</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Urbanist:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <script src="main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+
+
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        .main-content {
+            flex-grow: 1;
+
+            padding: 60px 0;
+            background: linear-gradient(180deg, #0d110d 0%, #050705 100%);
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #0f172a;
+
+            color: #e5e4e2;
+            background-image: url(./Images-Projekt-Aurora/Bäume_Stadt.jpg);
+            background-repeat: no-repeat;
+
+            background-size: cover;
+
+            background-position: center;
+
+            background-attachment: fixed;
+
+            font-family: 'Urbanist', sans-serif;
+            overflow-x: hidden;
+        }
+
+
+        .main-content {
+            flex-grow: 1;
+            padding: 60px 0;
+
+            background: rgba(255, 255, 255, 0.05) !important;
+
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+
+            border-top: 1px solid rgba(229, 228, 226, 0.1);
+        }
+
+
+        .navbar {
+            width: 100%;
+            background-color: rgba(15, 25, 45, 0.7) !important;
+            backdrop-filter: blur(10px);
+
+            border-bottom: 1px solid rgba(229, 228, 226, 0.2);
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+
+        .navbar-nav {
+            display: flex !important;
+            justify-content: space-around !important;
+            width: 100%;
+        }
+
+        .nav-link {
+            color: #e5e4e2 !important;
+
+            transition: 0.4s ease;
+        }
+
+        .nav-link:hover {
+            color: #ffffff !important;
+            text-shadow: 0 0 12px rgba(229, 228, 226, 0.6) !important;
+            transform: scale(1.05);
+        }
+
+
+        .navbar-toggler-icon {
+            filter: brightness(0) invert(1) drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) !important;
+        }
+
+        .navbar-brand {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            color: #40e0d0 !important;
+
+            letter-spacing: 2px;
+        }
+
+
+        .dropdown-menu {
+            background-color: rgba(20, 30, 55, 0.85);
+
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(229, 228, 226, 0.2);
+        }
+
+        .dropdown-item {
+            color: #e5e4e2 !important;
+        }
+
+        .dropdown-item:hover {
+            background-color: rgba(64, 224, 208, 0.2);
+
+            color: #fff !important;
+        }
+
+
+        .jumbotron-hero {
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: relative;
+            padding: 100px 0;
+            margin-bottom: 0;
+            border-radius: 0;
+            background: radial-gradient(circle at center,
+                    rgba(255, 255, 255, 0.1) 0%,
+                    rgba(10, 35, 28, 0.4) 40%,
+                    rgba(5, 15, 10, 0.7) 100%) !important;
+
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+        }
+
+        .jumbotron-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            background-color: rgba(15, 23, 42, 0.35);
+            z-index: 1;
+        }
+
+        .hero-title {
+
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.5), 2px 2px 10px rgba(0, 0, 0, 0.8);
+        }
+
+        .hero-container {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 6px;
+            font-weight: 500;
+            font-size: 3rem;
+            color: #ffffff;
+            text-shadow: 0 0 20px rgba(229, 228, 226, 0.8), 2px 2px 5px rgba(0, 0, 0, 0.9) !important;
+        }
+
+
+        .main-content {
+            flex-grow: 1;
+            padding: 60px 0;
+
+
+            background: rgba(15, 23, 42, 0.6) !important;
+
+
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+
+
+            border-top: 1px solid rgba(229, 228, 226, 0.15);
+
+
+            box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .image-wrapper {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .image-wrapper:hover img {
+            transform: scale(1.05);
+        }
+
+        .hero-subtitle {
+            color: rgba(229, 228, 226, 0.85) !important;
+
+            font-size: 1.25rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+
+        footer {
+            background: rgba(5, 15, 10, 0.8) !important;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 15px 0;
+            margin-top: auto;
+
+        }
+
+        .footer-link {
+            color: #e5e4e2 !important;
+            transition: 0.3s;
+        }
+
+        .footer-link:hover {
+            color: #40e0d0 !important;
+
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+
+        }
+
+        .footer-content .row {
+            margin: 10px 0;
+
+            width: 100%;
+            display: flex;
+            justify-content: center;
+
+        }
+
+        .footer-logo {
+            margin-top: 5px;
+            font-size: 1.6rem;
+            letter-spacing: 6px;
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            opacity: 0.6;
+            margin-top: 10px;
+        }
+
+
+        #asphalt,
+        #clima,
+        #projekte,
+        #salud {
+            scroll-margin-top: 90px;
+        }
+
+
+        .intro-section {
+            padding: 56px 0 32px;
+        }
+
+        .intro-card {
+            background: rgba(15, 23, 42, 0.30);
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+            border: 1px solid rgba(229, 228, 226, 0.18);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+            padding: 2rem 2.5rem;
+            text-align: left;
+            text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7);
+        }
+
+        .intro-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            letter-spacing: 1.5px;
+            color: #ffffff;
+            margin-bottom: 1.2rem;
+        }
+
+        .intro-card p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .intro-card p:last-child {
+            margin-bottom: 0;
+        }
+
+
+        .section-subtitle {
+            color: rgba(229, 228, 226, 0.85);
+            font-size: 1.15rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+
+        .aurora-article {
+            text-align: left;
+        }
+
+        .aurora-article h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.45rem;
+            letter-spacing: 1px;
+            color: #ffffff;
+            margin: 2.2rem 0 1rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 1px solid rgba(64, 224, 208, 0.3);
+        }
+
+        .aurora-article h3:first-child {
+            margin-top: 0;
+        }
+
+        .aurora-article p,
+        .aurora-article li {
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .aurora-article ul {
+            padding-left: 1.3rem;
+        }
+
+        .aurora-article li {
+            margin-bottom: 0.5rem;
+        }
+
+        .merkliste-wrap {
+            margin-top: 1.5rem;
+        }
+
+        @media (max-width: 576px) {
+            .intro-card {
+                padding: 1.4rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="./index.html">AURORA</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav"
+                aria-controls="mainNav" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav w-100 text-center ">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="infoDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Infos
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="infoDropdown">
+                            <a class="dropdown-item" href="./blog.html">Info Blog</a>
+                            <a class="dropdown-item" href="./deepwoods.html">Deep
+                                Woods</a>
+                            <a class="dropdown-item" href="./baeumestadt.html">Bäume in der
+                                Stadt</a>
+                            <a class="dropdown-item" href="./waldundkunst.html">Wald und Kunst</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="scienceDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Wissenschaft
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="scienceDropdown">
+                            <a class="dropdown-item" href="./gesundheit.html">Wald und
+                                Gesundheit</a>
+                            <a class="dropdown-item" href="./krankheiten.html">Waldkrankheiten</a>
+                            <a class="dropdown-item" href="./klima.html">Wald und
+                                Klima</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="economyDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Wirtschaft
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="economyDropdown">
+                            <a class="dropdown-item" href="./ressourcen.html">Energie und
+                                Ressourcen</a>
+                            <a class="dropdown-item" href="./holzwirtschaft.html">Holzwirtschaft</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="simulationDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Eco-Simulation
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="simulationDropdown">
+                            <a class="dropdown-item" href="./sandbox.html">Sandbox</a>
+                            <a class="dropdown-item" href="./herausforderungen.html">Herausforderungen</a>
+                            <a class="dropdown-item" href="./ergebnisse.html">Ergebnisse</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./verlauf.html" target="_blank" rel="noopener">Verlauf und
+                            Merkliste</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="jumbotron-hero" style="background-image: url('./assets/images/default-bg.jpg');">
+        <div class="container hero-container">
+            <h1 class="hero-title">Bäume und Stadt</h1>
+            <p class="hero-subtitle">Natur aus dem Asphalt</p>
+        </div>
+    </header>
+
+    <section class="intro-section" id="einleitung">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="intro-card">
+                        <h2 class="intro-title">Grün - wohltuend und für uns alle wesentlich!</h2>
+                        <p>Hier richten wir den Blick auf die Bäume, die mitten unter uns wachsen: in Straßen, auf
+                            Plätzen und zwischen Wohnhäusern. Dabei schauen wir auf Städte in aller Welt – Wien ist nur
+                            unser Ausgangspunkt, weil wir hier leben.</p>
+                        <p>Doch grün ist nicht automatisch gleich wirksam: Ein großer Baum braucht Raum, vor allem unter
+                            der Erde, damit seine Wurzeln wachsen und er der Gemeinschaft wirklich nützen kann. Deshalb
+                            würdigen wir, was gelungen ist, und benennen ebenso klar, was nicht genügt – auch dort, wo
+                            wir leben und wo vieles davon selten zur Sprache kommt. Wir stellen drei Blickwinkel
+                            nebeneinander: Wien mit seinen Fortschritten und seinen ernsten Missständen, europäische
+                            Städte und Tokio mit ihren Lösungen und Erfahrungen sowie Mexiko-Stadt mit seinen oft
+                            übersehenen Initiativen.</p>
+                        <p>Beides, Gelungenes wie Versäumtes, entscheidet über die Gesundheit und das Wohlbefinden in
+                            einer Stadt. Darum ist Mitwirken so wichtig: Wie eine Stadt mit ihrem Grün umgeht,
+                            entscheiden am Ende auch die Menschen mit, die dort leben. Wer sich informiert und
+                            beteiligt, kann Gutes unterstützen und Missstände nicht länger hinnehmen. Dazu möchten wir
+                            einladen.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="container mb-5">
+                        <div class="row text-center">
+                            <div class="col-md-3 mb-4">
+                                <a href="#asphalt" class="aurora-link">
+                                    <h5>Raus aus dem Asphalt</h5>
+                                    <p class="small text-light">Raum für Wurzeln</p>
+                                </a>
+                            </div>
+                            <div class="col-md-3 mb-4">
+                                <a href="#clima" class="aurora-link">
+                                    <h5>Mikroklima</h5>
+                                    <p class="small text-light">Was Bäume gegen Hitze leisten</p>
+                                </a>
+                            </div>
+                            <div class="col-md-3 mb-4">
+                                <a href="#projekte" class="aurora-link">
+                                    <h5>Wiener Projekte</h5>
+                                    <p class="small text-light">Erfolge und Missstände</p>
+                                </a>
+                            </div>
+                            <div class="col-md-3 mb-4">
+                                <a href="#salud" class="aurora-link">
+                                    <h5>Wohlbefinden in der Stadt</h5>
+                                    <p class="small text-light">Grün als Recht für alle</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container">
+
+                        <div id="asphalt" class="row align-items-center mb-5 py-4">
+                            <div class="col-md-6">
+                                <h2 class="hero-title" style="font-size: 2.5rem;">Raus aus dem <span>Asphalt</span></h2>
+                                <p class="section-subtitle">Raum für Wurzeln – was unter dem Pflaster entscheidet</p>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="image-wrapper"
+                                    style="height: 300px; border: 1px solid rgba(64, 224, 208, 0.3);">
+                                    <img src="./Images-Projekt-Aurora/Bioswale_and_curb_extension_with_cutouts_(38067594726).jpg"
+                                        alt="Straße in Wien mit Bäumen im Wurzelraum-Beet">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center mb-5 pb-4"
+                            style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                            <div class="col-lg-9 text-left">
+                                <article id="art-asphalt" class="aurora-article">
+                                    <p>Was wir an einem Stadtbaum sehen, ist nur die eine Hälfte. Die andere liegt unter
+                                        unseren Füßen: Wurzeln brauchen Raum, Luft und Wasser. In vielen Straßen steht
+                                        ein Baum jedoch in einer kleinen Baumscheibe, umgeben von Asphalt und Leitungen.
+                                        Dort kann er überleben – aber kaum zu jener großen Krone heranwachsen, die
+                                        Schatten spendet und die Stadt abkühlt.</p>
+
+                                    <p>Hier setzt das <strong>Schwammstadt-Prinzip für Stadtbäume</strong> an. Unter
+                                        Gehsteig oder Fahrbahn wird ein durchgehender Raum aus grobem Schotter und
+                                        lockerem Substrat geschaffen. Die Wurzeln können sich tief und weit ausbreiten,
+                                        der Raum speichert Regenwasser für trockene Zeiten und entlastet bei Starkregen
+                                        die Kanalisation. Das Konzept stammt aus Stockholm.</p>
+
+                                    <p>Wie viel Raum ist genug? Laut Stadtrat hat eine Baumscheibe in Wien im Regelfall
+                                        neun Quadratmeter Oberfläche und rund 15 Kubikmeter Wurzelraum; in
+                                        Stadterweiterungsgebieten mit Schwammstadt-Prinzip sind es etwa 35. Einem
+                                        futurezone-Bericht zufolge ist ein Raum von rund zehn Kubikmetern schon nach
+                                        etwa fünf Jahren durchwurzelt, rund 35 seien für einen großen Baum nötig. Diese
+                                        Zahlen zeigen, worum es geht: nicht um die Zahl der Bäume, sondern darum, ob sie
+                                        groß und alt werden dürfen.</p>
+
+                                    <p>Wien arbeitet daran. Die Stadtgärten haben gemeinsam mit der Wissenschaft ein
+                                        eigenes Baumsubstrat entwickelt, rund 20.000 Kubikmeter davon allein 2021. Die
+                                        Stadt verfolgt das Ziel, jährlich rund 4.500 Stadtbäume zu pflanzen. Die
+                                        Forschung bestätigt den Weg: Mehr Bäume und Entsiegelung gehören laut GeoSphere
+                                        zu den wirksamsten Maßnahmen gegen Hitze, Gründächer leisten deutlich weniger.
+                                    </p>
+
+                                    <p>Warum geschieht das nicht überall? Weil es teuer ist. Laut dem
+                                        Stadtgartendirektor kann ein Baum an einer Straße mit Asphalt und Leitungen bis
+                                        zu 25.000 Euro kosten, in einer Parkanlage rund 3.000. Das ist ein ehrlicher
+                                        Grund, aber keine Ausrede: Wer Wurzelraum einspart, zahlt später mit kleineren
+                                        Bäumen und weniger Kühlung.</p>
+
+                                    <h3>Drei Fragen, die jede Planung beantworten können sollte</h3>
+                                    <ul>
+                                        <li>Wie viele Kubikmeter Wurzelraum bekommt der Baum?</li>
+                                        <li>Wie tief reicht die Erde?</li>
+                                        <li>Liegt sie offen im gewachsenen Boden oder über einer Decke aus Beton?</li>
+                                    </ul>
+
+                                    <h3>Blick nach Paris: Wie viele Bäume sind genug?</h3>
+                                    <p>Paris will bis 2026 insgesamt 170.000 neue Bäume pflanzen. Der Bedarf ist groß:
+                                        Nur rund zehn Prozent der Stadt sind Grünfläche, in London sind es 33, in Oslo
+                                        68 Prozent. Bei einer Hitzewelle zeigte das Thermometer eines Stadtplaners 56 °C
+                                        auf dem Asphalt vor der Oper, nur eine Gehminute entfernt im Schatten der Bäume
+                                        28 °C.</p>
+
+                                    <p>Doch auch hier lohnt der zweite Blick. Nach den Zahlen der Stadt standen von rund
+                                        63.500 Bäumen der ersten drei Jahre etwa 30.000 an den Böschungen der
+                                        Stadtautobahn, 19.000 in den Stadtwäldern und gut 14.000 innerhalb der Stadt.
+                                        Die Bürgerinitiative „Aux arbres citoyens!“ kritisiert, dass dabei auch 50
+                                        Zentimeter hohe Setzlinge als Bäume zählen. Die Lehre gilt für jede Stadt: Eine
+                                        große Zahl sagt noch nicht, wie viele Bäume wirklich groß werden dürfen. Für
+                                        neue Stadtwälder in Paris betont das beauftragte Planungsbüro Arcadis, dass
+                                        Bäume Böden mit Mindestvolumen und -tiefe brauchen.</p>
+                                </article>
+                                <div class="merkliste-wrap">
+                                    <button class="btn btn-outline-info btn-sm mt-2"
+                                        onclick="addToMerklisteById('art-asphalt', 'Raus aus dem Asphalt: Raum für Wurzeln', 'Bäume und Stadt')">
+                                        <i class="fas fa-bookmark mr-1"></i>Zur Merkliste hinzufügen hinzufügen
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="clima" class="row align-items-center mb-5 py-4">
+                            <div class="col-md-6 order-md-2">
+                                <h2 class="hero-title" style="font-size: 2.5rem;">Mikro<span>klima</span></h2>
+                                <p class="section-subtitle">Was Bäume gegen Hitze wirklich leisten</p>
+                            </div>
+                            <div class="col-md-6 order-md-1">
+                                <div class="image-wrapper"
+                                    style="height: 300px; border: 1px solid rgba(64, 224, 208, 0.3);">
+                                    <img src="./Images-Projekt-Aurora/wienerwald.jpg"
+                                        alt="Wienerwald aus Wikimedia.org">
+                                       
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center mb-5 pb-4"
+                            style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                            <div class="col-lg-9 text-left">
+                                <article id="art-mikroklima" class="aurora-article">
+
+                                    <h3>Architektur, die der Luft den Weg lässt</h3>
+                                    <p>Wien hat einen natürlichen Vorteil: Wienerwald und Donautal sorgen für eine gute
+                                        Versorgung mit Frisch- und Kaltluft. Da der Wind meist aus Westen kommt, strömt
+                                        er über Grünflächen wie den Wienerwald und kühlt dabei ab; vor allem der Westen
+                                        der Stadt profitiert davon. Die Wiener Stadtklimaanalyse zeigt, wo Frisch- und
+                                        Kaltluft entstehen und wo Windschneisen für Belüftung sorgen. Nicht das ganze
+                                        Stadtgebiet profitiert gleich: Es sind klar abgegrenzte Bereiche, etwa entlang
+                                        des Wientals oder in Teilen von Dornbach.</p>
+
+                                    <p>Ob die kühle Luft die Menschen erreicht, entscheidet auch die Architektur. Laut
+                                        einer fachlichen Einordnung des Unternehmens Weatherpark lassen sich negative
+                                        Effekte durch zur Strömung parallele Gebäude und Höhenbegrenzungen mindern, in
+                                        Einzelfällen kann auch weniger Bebauung oder Versiegelung sinnvoll sein. Die
+                                        Stadt hat sich das selbst vorgenommen: In der Stadtplanung sind Frisch- und
+                                        Kaltluftschneisen zu berücksichtigen. Der Klimatologe Max Wittkowski von der
+                                        Stadt Wien mahnt, einen solchen topografischen Vorteil nicht zu verbauen.</p>
+
+                                    <p>Für uns heißt das: Stellung, Höhe und Lücken von Gebäuden können darüber
+                                        entscheiden, ob in einer Hitzenacht frische Luft ankommt. Bei jedem größeren
+                                        Vorhaben lohnt sich daher die Frage: Wurde der Luftstrom berechnet – und wo kann
+                                        man es nachlesen?</p>
+                                </article>
+                                <div class="merkliste-wrap">
+                                    <button class="btn btn-outline-info btn-sm mt-2"
+                                        onclick="addToMerklisteById('art-mikroklima', 'Mikroklima: Architektur, die der Luft den Weg lässt', 'Bäume und Stadt')">
+                                        <i class="fas fa-bookmark mr-1"></i>Zur Merkliste hinzufügen hinzufügen
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="projekte" class="row align-items-center mb-5 py-4">
+                            <div class="col-md-6">
+                                <h2 class="hero-title" style="font-size: 2.5rem;">Wien: Erfolge und
+                                    <span>Missstände</span>
+                                </h2>
+                                <p class="section-subtitle">Anerkennen, was gelingt – und deutlich benennen, was nicht
+                                    genügt.</p>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="image-wrapper"
+                                    style="height: 300px; border: 1px solid rgba(64, 224, 208, 0.3);">
+                                    <img src="./Images-Projekt-Aurora/Westbahnpark_Luftbild-©Benedikt-Safer-2023-1770x2048.jpeg"
+                                        alt="Westbahnareal und Grünflächen in Wien Foto von Benedikt Safer">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center mb-5 pb-4"
+                            style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                            <div class="col-lg-9 text-left">
+                                <article id="art-wien" class="aurora-article">
+                                    <h3>Was gelungen ist</h3>
+                                    <p>Wien verdient Anerkennung dort, wo sich wirklich etwas verändert. Die
+                                        Umgestaltung der Simmeringer Hauptstraße und die Fassadenbegrünung mit dem
+                                        Modulsystem BeRTA zeigen, dass die Stadt Grün nicht nur plant, sondern baut.
+                                        Auch unter der Erde tut sich etwas: Die Wiener Stadtgärten haben gemeinsam mit
+                                        Wissenschaftlerinnen und Wissenschaftlern ein eigenes Baumsubstrat entwickelt
+                                        und setzen das Schwammstadt-Prinzip ein, das Bäumen mehr Wurzelraum unter den
+                                        Straßen gibt. 2021 wurden die Stadtgärten dafür mit dem Europäischen
+                                        Stadtbaumpreis ausgezeichnet.</p>
+
+                                    <p>Die Forschung bestätigt den Weg: Eine Studie unter Beteiligung von GeoSphere
+                                        Austria, BOKU und AIT zeigt, dass naturnahe Maßnahmen wie mehr Bäume und
+                                        Entsiegelung in dicht verbauten Gebieten Wiens lokal bis zu 2 °C Abkühlung
+                                        bringen können. Die wirksamste Einzelmaßnahme ist dabei mehr Baumbestand;
+                                        Gründächer leisten deutlich weniger, und technische Lösungen wie Nebelduschen
+                                        kühlen schwächer.</p>
+
+                                    <p>Gerade deshalb lohnt es sich, genau darauf zu blicken. Eine BOKU-Studie im
+                                        Auftrag der Arbeiterkammer bescheinigt Wien, sich zu gerechter
+                                        Grünraumversorgung zu bekennen und die nötigen Instrumente zu besitzen, plädiert
+                                        aber für gründliches Umdenken statt einzelner Prestigemaßnahmen.
+                                        BOKU-Expertinnen betonen zudem, dass vieles, was nach einer Vollversiegelung
+                                        noch möglich ist, letztlich „Kosmetik“ bleibt. Wien wird gern als eine der
+                                        grünsten Städte der Welt bezeichnet. Das ist ein Erfolg, aber eine Prozentzahl
+                                        sagt nicht, wo das Grün liegt, wer es erreicht und ob ein Baum darin wirklich
+                                        groß werden kann.</p>
+
+                                    <h3>Westbahnareal: Wie viel Park steckt im Park?</h3>
+                                    <p>Das Gelände hinter dem Westbahnhof ist eine der letzten großen
+                                        Entwicklungsflächen der Stadt, in einem Bezirk mit wenig Grünflächen. Lilli
+                                        Lička von der BOKU beschreibt die Menschen dort als sehr jung, mit geringem
+                                        Einkommen, auf engem Raum lebend und besonders auf ein Grün direkt vor der
+                                        Haustür angewiesen.</p>
+
+                                    <p>Die Stadt hat im September 2026 den Planungswettbewerb gestartet: Auf rund sechs
+                                        Hektar sollen etwa fünf Hektar öffentlich zugänglicher Park entstehen, dazu eine
+                                        Schule, Wohnungen und weitere Einrichtungen; das Gelände soll teilweise
+                                        angehoben werden. Die Arbeiten sollen erst nach 2030 beginnen.</p>
+
+                                    <p>Die Kritik kommt aus der Bevölkerung. Die Bürgerinitiative „Westbahnpark Jetzt“
+                                        hat für einen unverbauten Park eine Petition mit mehr als 11.000 Unterschriften
+                                        gesammelt. Die Grünen Rudolfsheim-Fünfhaus kritisieren, der geplante
+                                        „Landschaftspark“ sei im Kern eine Dachbegrünung über wirtschaftlich genutzten
+                                        Bauten: Hochhäuser, Parkgaragen und ein Logistikzentrum unter einem Rasendach,
+                                        dazu eine 12 Meter breite Straße und Lkw-Schwerverkehr. Das ist ihre Position;
+                                        die Stadt sieht es anders.</p>
+
+                                    <p>Entscheidend ist eine einfache Frage: Wie viel durchgehende Erde liegt
+                                        tatsächlich unter den Bäumen – und wie viel Beton? Ein großer Baum braucht Raum.
+                                        Laut Stadtrat haben normale Baumscheiben in Wien 15 Kubikmeter Wurzelraum, in
+                                        Stadterweiterungsgebieten mit Schwammstadt-Prinzip rund 35. Solange nicht klar
+                                        ist, welche Bodentiefe dieser Park haben wird, darf – und sollte – man den
+                                        Begriff „Park“ hinterfragen.</p>
+
+                                    <p>Auch beim Thema Frischluft lohnt genaues Hinschauen. Die Grünen forderten im März
+                                        2026 eine genaue Vermessung des Kaltluftstroms vom Wienerwald. Eine von den ÖBB
+                                        beauftragte Untersuchung kommt nun zu dem Ergebnis, dass das Areal nur von
+                                        Ausläufern der Kaltluftleitbahn aus dem Wiental erreicht wird, bedingt durch
+                                        eine Engstelle der Bahntrasse sowie durch das Technische Museum und ein
+                                        angrenzendes Hotel. Wir stellen eine Frage, ohne dem Gutachten etwas zu
+                                        unterstellen: Sollte eine Entscheidung für Jahrzehnte allein auf einer
+                                        Untersuchung des Grundeigentümers beruhen – oder braucht es eine zweite,
+                                        unabhängige Messung, die alle nachvollziehen können?</p>
+
+                                    <p>Auch die Luft gehört dazu. Der Straßenverkehr ist in Österreich die größte Quelle
+                                        von Stickstoffoxiden, und der Schwerverkehr ist für einen großen Teil der
+                                        Feinstaub- und Stickstoffemissionen des Verkehrssektors verantwortlich. Für das
+                                        Westbahnareal selbst liegen uns keine Messwerte vor; deshalb fragen wir, wie
+                                        viel zusätzlicher Lkw-Verkehr dort tatsächlich zu erwarten ist.</p>
+
+                                    <p>Dahinter steht unsere eigentliche Sorge: dass Begrünung vor allem Zielvorgaben
+                                        auf dem Papier erfüllt – Quadratmeter, Baumzahlen, schöne Bilder –, ohne dass
+                                        sie in der Stadt spürbar wirkt.</p>
+
+                                    <h3>Informieren, nachfragen, mitreden</h3>
+                                    <p>Seit 2019 besitzt Wien eine Hitzekarte, die zeigt, wo Abkühlung am dringendsten
+                                        gebraucht wird. Wer sie kennt, kann Planungen daran messen. Die Initiative
+                                        Westbahnpark hat mit Demonstrationen, einem Festzug und Unterschriften gezeigt,
+                                        wie Öffentlichkeit ein Thema auf die Tagesordnung bringt, und mangelnde
+                                        Information über den laufenden Prozess beklagt. Die Stadt hat einen mehrstufigen
+                                        Beteiligungsprozess angekündigt. Ob er Wirkung entfaltet, hängt auch davon ab,
+                                        wie viele sich beteiligen.</p>
+
+                                    <p>Es gibt auch einen europäischen Maßstab: Die EU-Verordnung zur Wiederherstellung
+                                        der Natur verlangt bis 2030 keinen Nettoverlust an städtischen Grünflächen und
+                                        Baumkronen. Kritik ist kein Angriff, sondern Teil guter Stadtentwicklung: Wer
+                                        genau hinschaut, würdigt, was gelingt, und fordert, was fehlt.</p>
+                                </article>
+                                <div class="merkliste-wrap">
+                                    <button class="btn btn-outline-info btn-sm mt-2"
+                                        onclick="addToMerklisteById('art-wien', 'Wien: Erfolge und Missstände', 'Bäume und Stadt')">
+                                        <i class="fas fa-bookmark mr-1"></i>Zur Merkliste hinzufügen hinzufügen
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="salud" class="row align-items-center mb-5 py-4">
+                            <div class="col-md-6 order-md-2">
+                                <h2 class="hero-title" style="font-size: 2.5rem;">Wohlbefinden in der <span>Stadt</span>
+                                </h2>
+                                <p class="section-subtitle">Grün als Recht für alle</p>
+                            </div>
+                            <div class="col-md-6 order-md-1">
+                                <div class="image-wrapper"
+                                    style="height: 300px; border: 1px solid rgba(64, 224, 208, 0.3);">
+                                    <img src="./Images-Projekt-Aurora/Singapore_Bishan_Park_Aerial.jpg" alt="Menschen in einem begrünten Stadtraum">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-center mb-5 pb-4">
+                            <div class="col-lg-9 text-left">
+                                <article id="art-wohlbefinden" class="aurora-article">
+                                    <h3>Ein einfacher Maßstab: die 3-30-300-Regel</h3>
+                                    <p>Wie lässt sich messen, ob eine Stadt genug Grün hat – und ob es dort ist, wo
+                                        Menschen leben? Der Forstwissenschaftler Cecil Konijnendijk hat eine einprägsame
+                                        Faustregel vorgeschlagen: Von jedem Zuhause, jeder Schule und jedem Arbeitsplatz
+                                        sollten drei Bäume zu sehen sein, das Wohnviertel sollte zu mehr als 30 % von
+                                        Baumkronen beschattet sein, und der nächste Park höchstens 300 Meter entfernt
+                                        liegen. Die Europäische Umweltagentur nennt sie ein wichtiges, evidenzbasiertes
+                                        Instrument, das leicht verständlich und an lokale Verhältnisse anpassbar ist.
+                                    </p>
+
+                                    <p><em>Ein Test für zu Hause: Wie viele Bäume sehe ich aus meinem Fenster?</em></p>
+
+                                    <p>Erste Untersuchungen deuten auf den Nutzen hin: In Barcelona wurde die Erfüllung
+                                        der Regel mit besserer psychischer Gesundheit in Verbindung gebracht,
+                                        statistisch eindeutig bei Besuchen von Psychologinnen und Psychiatern. Das ist
+                                        ein Zusammenhang, kein endgültiger Beweis; weitere Untersuchungen sind nötig.
+                                    </p>
+
+                                    <p>Zugleich zeigt der Blick auf acht Weltstädte: Von über 2,5 Millionen untersuchten
+                                        Gebäuden verfehlen die meisten die Regel, meist weil die vorhandenen Bäume zu
+                                        klein sind, um 30 % Kronendach zu erreichen. Das führt zurück zum Anfang: Große
+                                        Kronen brauchen große Bäume, und große Bäume brauchen Wurzelraum.</p>
+
+                                    <h3>Singapur: Es geht – mit langem Atem</h3>
+                                    <p>In dieser Untersuchung war Singapur die einzige Stadt, die bei allen drei Teilen
+                                        der Regel bestand; rund drei von vier Gebäuden lagen in Vierteln mit mindestens
+                                        30 % Baumkronen. Wien war nicht Teil der Untersuchung. Die Forschenden betonen,
+                                        dass 30 % nur das absolute Minimum sind; für eine spürbare Abkühlung am Tag
+                                        brauche es eher 40 %.</p>
+
+                                    <p>Singapur setzt zudem auf eine breite Bewegung: Seit 2020 treibt „OneMillionTrees“
+                                        die Pflanzung einer Million zusätzlicher Bäume bis 2030 voran, getragen von
+                                        Schulen, Nachbarschaftsgruppen und Betrieben. Nach drei Jahren waren über
+                                        540.000 gepflanzt. Auch das Wohlbefinden wird mitgedacht: Bis 2030 sollen 30
+                                        therapeutische Gärten und 300 Kilometer begrünter Straßen („Nature Ways“)
+                                        entstehen.</p>
+
+                                    <h3>Auch Schulhöfe können Oasen werden</h3>
+                                    <p>In Paris werden Schulhöfe zu „Oasen“ umgebaut: Nach Angaben der Stadtverwaltung
+                                        entstehen so fast zwei Hektar Vegetation auf 100 Schulhöfen.</p>
+
+                                </article>
+                                <div class="merkliste-wrap">
+                                    <button class="btn btn-outline-info btn-sm mt-2"
+                                        onclick="addToMerklisteById('art-wohlbefinden', 'Wohlbefinden in der Stadt: Grün als Recht für alle', 'Bäume und Stadt')">
+                                        <i class="fas fa-bookmark mr-1"></i>Zur Merkliste hinzufügen hinzufügen
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<div class="container my-5" id="quellen-baeume-stadt">
+    <h2 class="hero-title" style="font-size: 2rem;">Quellenverzeichnis</h2>
+    <p class="small text-light">Die folgenden Quellen stehen hinter den Aussagen auf dieser Seite. Alle Links öffnen in einem neuen Tab.</p>
+
+    <h3 class="h5 mt-4">Raus aus dem Asphalt</h3>
+    <ul class="list-unstyled">
+        <li class="mb-2"><a href="https://noe.gv.at/noe/Gartenbauschule_Langenlois_setzt_Zukunftsmodell_Schwammst.html" target="_blank" rel="noopener">Land Niederösterreich</a> – Meldung zum Schwammstadt-Prinzip (Gartenbauschule Langenlois)</li>
+        <li class="mb-2"><a href="https://www.wien.gv.at/mdb/gr/2026/gr-015-w-2026-06-16-009.htm" target="_blank" rel="noopener">Stadt Wien</a> – Protokoll der Gemeinderatssitzung vom 16. Juni 2026 (Wurzelraum von Baumscheiben)</li>
+        <li class="mb-2"><a href="https://futurezone.at/science/ein-besseres-leben-fuer-stadtbaeume/401163708" target="_blank" rel="noopener">futurezone</a> – Bericht über Wurzelraum und Stadtbäume</li>
+        <li class="mb-2"><a href="https://www.trendingtopics.eu/wie-wien-die-stadtbaume-klimaresilienter-machen-will/" target="_blank" rel="noopener">Trending Topics</a> – Bericht über das Baumsubstrat der Wiener Stadtgärten</li>
+        <li class="mb-2"><a href="https://www.derstandard.at/story/3000000173236/kritik-an-fehlenden-stadtbaeumen-in-wien" target="_blank" rel="noopener">Der Standard</a> – Bericht über Wiens Stadtbäume (Ziel von rund 4.500 Bäumen pro Jahr)</li>
+        <li class="mb-2"><a href="https://wien.orf.at/stories/3321259" target="_blank" rel="noopener">ORF Wien</a> – Bericht über die Kosten von Baumpflanzungen</li>
+        <li class="mb-2"><a href="https://www.geosphere.at/en/news-and-events/news/nature-based-measures-are-effective-against-heat-stress-in-vienna" target="_blank" rel="noopener">GeoSphere Austria</a> – Nature-based Solutions are effective against heat stress in Vienna</li>
+        <li class="mb-2"><a href="https://www.paris.fr/pages/l-arbre-a-paris-199" target="_blank" rel="noopener">Ville de Paris</a> – Der Baumplan der Stadt (Plan Arbre, Ziel 170.000 Bäume)</li>
+        <li class="mb-2"><a href="https://cdn.paris.fr/presse/2023/05/25/bea8873331225a45252c332679965229.pdf" target="_blank" rel="noopener">Ville de Paris</a> – Pressemappe 2023 (Bilanz der Pflanzungen)</li>
+        <li class="mb-2"><a href="https://www.aol.com/news/heatwave-paris-exposes-citys-lack-154632029.html" target="_blank" rel="noopener">Reuters (2022)</a> – Heatwave in Paris exposes city's lack of trees</li>
+        <li class="mb-2"><a href="https://www.linfodurable.fr/paris-larbre-au-centre-de-toutes-les-attentions-38762" target="_blank" rel="noopener">L'Info Durable (AFP)</a> – Bericht über die Pariser Baumpflanzungen und die Kritik daran</li>
+        <li class="mb-2"><a href="https://www.arcadis.com/de-de/projects/europe/france/forets-urbaines-a-paris" target="_blank" rel="noopener">Arcadis</a> – Projektseite zu den städtischen Wäldern in Paris</li>
+    </ul>
+
+    <h3 class="h5 mt-4">Mikroklima</h3>
+    <ul class="list-unstyled">
+        <li class="mb-2"><a href="https://www.wien.gv.at/spezial/klimafahrplan/klimaanpassung-wien-wird-klimaresilient/stadtentwicklung-and-planung/" target="_blank" rel="noopener">Stadt Wien</a> – Klimafahrplan: Stadtentwicklung und -planung</li>
+        <li class="mb-2"><a href="https://www.wien.gv.at/spezial/smartklimacitystrategie/zielbereiche/anpassung-an-den-klimawandel/" target="_blank" rel="noopener">Stadt Wien</a> – Smart Klima City Strategie: Anpassung an den Klimawandel</li>
+        <li class="mb-2"><a href="https://www.wien.gv.at/stadtentwicklung/grundlagen/stadtforschung/stadtklimaanalyse.html" target="_blank" rel="noopener">Stadt Wien</a> – Wiener Stadtklimaanalyse</li>
+        <li class="mb-2"><a href="https://www.heute.at/s/cooles-wien-trotz-klimawandel-neue-analyse-zeigt-wie-100155824" target="_blank" rel="noopener">Heute</a> – Bericht über die Wiener Stadtklimaanalyse</li>
+        <li class="mb-2"><a href="https://www.weatherpark.com/kaltluft-stadtentwicklung-rettet-den-wiener-wald/" target="_blank" rel="noopener">Weatherpark</a> – Fachliche Einordnung zu nächtlicher Kaltluft (Unternehmen)</li>
+        <li class="mb-2"><a href="https://www.meinbezirk.at/wien/c-lokales/kaltluftstroeme-sollen-in-zukunft-nicht-verbaut-werden_a6221637" target="_blank" rel="noopener">MeinBezirk</a> – Bericht über Kaltluftströme in der Stadtplanung</li>
+    </ul>
+
+    <h3 class="h5 mt-4">Wien: Erfolge und Missstände</h3>
+    <ul class="list-unstyled">
+        <li class="mb-2"><a href="https://science.apa.at/power-search/18192482903375304979" target="_blank" rel="noopener">APA-Science</a> – Bericht zur BOKU-Studie über Grünraumgerechtigkeit</li>
+        <li class="mb-2"><a href="https://bauwelt.de/dl/2114305/artikel.pdf" target="_blank" rel="noopener">Bauwelt</a> – Artikel zur Studie „Grünraumgerechtigkeit für eine resiliente Stadt“ (2023)</li>
+        <li class="mb-2"><a href="https://wien.orf.at/stories/3218391/" target="_blank" rel="noopener">ORF Wien</a> – Bericht über die BOKU-Kritik an der Stadtbegrünung</li>
+        <li class="mb-2"><a href="https://wien.orf.at/stories/3218727/" target="_blank" rel="noopener">ORF Wien</a> – Bericht über das Areal am Westbahnhof</li>
+        <li class="mb-2"><a href="https://wien.orf.at/stories/3242291/" target="_blank" rel="noopener">ORF Wien</a> – Bericht über das Gelände des Westbahnhofs (Zeitplan)</li>
+        <li class="mb-2"><a href="https://www.sn.at/panorama/oesterreich/wettbewerb-fuer-entwicklung-des-wiener-westbahnareals-startet-art-672436" target="_blank" rel="noopener">Salzburger Nachrichten</a> – Wettbewerb für das Westbahnareal startet</li>
+        <li class="mb-2"><a href="https://presse.wien.gv.at/presse/2026/09/11/stadtentwicklung-wettbewerbsstart-fuer-planung-am-westbahnareal" target="_blank" rel="noopener">Stadt Wien (11.09.2026)</a> – Stadtentwicklung: Wettbewerbsstart für Planung am Westbahnareal</li>
+        <li class="mb-2"><a href="https://www.falter.at/zeitung/20240319/park-hinter-westbahnhof-fauler-kompromiss" target="_blank" rel="noopener">Falter</a> – Bericht zum Park hinter dem Westbahnhof</li>
+        <li class="mb-2"><a href="https://rudolfsheim-fuenfhaus.gruene.at/news/bezirksentwicklung-verkehr/westbahnpark-aber-richtig/" target="_blank" rel="noopener">Die Grünen Rudolfsheim-Fünfhaus</a> – Westbahnpark? Aber richtig! (Position einer Partei)</li>
+        <li class="mb-2"><a href="https://www.parlament.gv.at/dokument/XXVII/PET/139/fname_1617087.pdf" target="_blank" rel="noopener">Parlament</a> – Petition zum Westbahnpark</li>
+        <li class="mb-2"><a href="https://www.vienna.at/grun-oder-bebaut-wird-der-westbahnpark-in-wien-realitat/8425279" target="_blank" rel="noopener">Vienna.at</a> – Grün oder bebaut: Wird der Westbahnpark in Wien Realität?</li>
+        <li class="mb-2"><a href="https://www.w24.at/News/2026/9/Westbahnareal-Sima-gibt-Go-fuer-Projektentwicklung" target="_blank" rel="noopener">W24</a> – Bericht zum Start der Projektentwicklung am Westbahnareal</li>
+        <li class="mb-2"><a href="https://www.bmluk.gv.at/themen/klima-und-umwelt/luft-und-laerm/luftguete/schadstoffe.html" target="_blank" rel="noopener">BMLUK</a> – Luftschadstoffe in Österreich</li>
+        <li class="mb-2"><a href="https://derstandard.at/2000088772356/Klimasuender-Strassenverkehr" target="_blank" rel="noopener">Der Standard (2018)</a> – Klimasünder Straßenverkehr</li>
+        <li class="mb-2"><a href="https://www.wien.gv.at/bezirke/hernals/politik/sitzungen/pdf/gr14-hitzeinseln.pdf" target="_blank" rel="noopener">Bezirk Hernals</a> – Unterlage zu Hitzeinseln (Hitzekarte)</li>
+        <li class="mb-2"><a href="https://forest.eea.europa.eu/resources/research-corner/research-highlights/urban-forestry-multi-functional-greening-in-the-city" target="_blank" rel="noopener">Europäische Umweltagentur (EEA)</a> – Urban forestry: multi-functional greening in the city</li>
+    </ul>
+
+    <h3 class="h5 mt-4">Wohlbefinden in der Stadt</h3>
+    <ul class="list-unstyled">
+        <li class="mb-2"><a href="https://journal.hep.com.cn/jfr/EN/10.1007/s11676-022-01523-z" target="_blank" rel="noopener">Journal of Forestry Research</a> – Evidence-based guidelines for greener, healthier, more resilient neighbourhoods: Introducing the 3–30–300 rule</li>
+        <li class="mb-2"><a href="https://forest.eea.europa.eu/resources/research-corner/research-highlights/urban-forestry-multi-functional-greening-in-the-city" target="_blank" rel="noopener">Europäische Umweltagentur (EEA)</a> – Urban forestry: multi-functional greening in the city</li>
+        <li class="mb-2"><a href="https://repositori.upf.edu/items/4750d538-87a9-415e-a2fd-ccc4bd584664/full" target="_blank" rel="noopener">Universitat Pompeu Fabra</a> – The evaluation of the 3-30-300 green space rule and mental health</li>
+        <li class="mb-2"><a href="https://doi.org/10.1038/s41467-024-53402-2" target="_blank" rel="noopener">Nature Communications (2024)</a> – Acute canopy deficits in global cities exposed by the 3-30-300 benchmark for urban nature</li>
+        <li class="mb-2"><a href="https://theconversation.com/we-rated-the-urban-forests-of-8-global-cities-only-singapore-passed-the-30-canopy-test-243829" target="_blank" rel="noopener">The Conversation</a> – We rated the urban forests of 8 global cities – only Singapore passed the 30% canopy test</li>
+        <li class="mb-2"><a href="https://www.upi.com/Health_News/2024/11/19/8651732024979/" target="_blank" rel="noopener">UPI / HealthDay (2024)</a> – Bericht zur Studie über Baumkronen in acht Städten</li>
+        <li class="mb-2"><a href="https://www.nparks.gov.sg/news/news-detail/nparks-to-work-with-the-community-to-transform-singapore-into-a-city-in-nature" target="_blank" rel="noopener">NParks Singapur</a> – NParks to work with the community to transform Singapore into a City in Nature</li>
+        <li class="mb-2"><a href="https://nparks.gov.sg/portals/annualreport/nature-for-all/index.htm" target="_blank" rel="noopener">NParks Singapur</a> – Jahresbericht: Nature for all (OneMillionTrees)</li>
+        <li class="mb-2"><a href="https://www.sg101.gov.sg/resources/archives/til-one-million-trees-movement/" target="_blank" rel="noopener">SG101 (Regierung Singapurs)</a> – One Million Trees Movement in Singapore</li>
+        <li class="mb-2"><a href="https://news.yahoo.com/heatwave-paris-exposes-citys-lack-165952098.html" target="_blank" rel="noopener">Reuters (2022)</a> – Heatwave in Paris exposes city's lack of trees (Schulhof-Oasen)</li>
+    </ul>
+</div>
+        </div>
+    </main>
+
+    <footer class="footer ">
+        <div class="container text-center">
+            <div class="footer-content">
+                <div class="footer-logo" style="font-family: 'Cinzel', serif;">AURORA</div>
+
+                <div class="row w-100">
+                    <div class="col-md-4"><a class="footer-link" href="./uebermich.html">Über mich</a></div>
+                    <div class="col-md-4"><a class="footer-link" href="./impressum.html">Impressum</a></div>
+                    <div class="col-md-4"><a class="footer-link" href="./datenschutz.html">Datenschutz</a>
+                    </div>
+                </div>
+
+                <p class="copyright">&copy; 2026 Adair Araujo Valenzuela</p>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>

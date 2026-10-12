@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurora - Wald und Gesundheit</title>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Urbanist:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            padding: 60px 0;
+            background: linear-gradient(180deg, #0d110d 0%, #050705 100%);
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #0f172a;
+                        color: #e5e4e2;
+            background-image: url(./Images-Projekt-Aurora/arboltroncogrande.jpg);
+            background-repeat: no-repeat;
+                        background-size: cover;
+                        background-position: center;
+                        background-attachment: fixed;
+                        font-family: 'Urbanist', sans-serif;
+            overflow-x: hidden;
+        }
+
+
+        .main-content {
+            flex-grow: 1;
+            padding: 60px 0;
+                        background: rgba(255, 255, 255, 0.05) !important;
+                        backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+                        border-top: 1px solid rgba(229, 228, 226, 0.1);
+        }
+
+                .navbar {
+            width: 100%;
+            background-color: rgba(15, 25, 45, 0.7) !important;
+            backdrop-filter: blur(10px);
+                        border-bottom: 1px solid rgba(229, 228, 226, 0.2);
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+                .navbar-nav {
+            display: flex !important;
+            justify-content: space-around !important;
+            width: 100%;
+        }
+
+        .nav-link {
+            color: #e5e4e2 !important;
+                        transition: 0.4s ease;
+        }
+
+        .nav-link:hover {
+            color: #ffffff !important;
+            text-shadow: 0 0 12px rgba(229, 228, 226, 0.6) !important;
+            transform: scale(1.05);
+        }
+
+                .navbar-toggler-icon {
+            filter: brightness(0) invert(1) drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) !important;
+        }
+
+        .navbar-brand {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            color: #40e0d0 !important;
+                        letter-spacing: 2px;
+        }
+
+
+        .dropdown-menu {
+            background-color: rgba(20, 30, 55, 0.85);
+                        backdrop-filter: blur(12px);
+            border: 1px solid rgba(229, 228, 226, 0.2);
+        }
+
+        .dropdown-item {
+            color: #e5e4e2 !important;
+        }
+
+        .dropdown-item:hover {
+            background-color: rgba(64, 224, 208, 0.2);
+                        color: #fff !important;
+        }
+
+                .jumbotron-hero {
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: relative;
+            padding: 100px 0;
+            margin-bottom: 0;
+            border-radius: 0;
+                        background-image: radial-gradient(circle at center,
+                    rgba(255, 255, 255, 0.1) 0%,
+                    rgba(10, 35, 28, 0.4) 40%,
+                    rgba(5, 15, 10, 0.7) 100%),
+                var(--hero-bild) !important;
+                        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+        }
+
+        .jumbotron-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+                        background-color: rgba(15, 23, 42, 0.35);
+            z-index: 1;
+        }
+
+        .hero-title {
+                        text-shadow: 0 0 30px rgba(255, 255, 255, 0.5), 2px 2px 10px rgba(0, 0, 0, 0.8);
+        }
+
+        .hero-container {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 6px;
+            font-weight: 500;
+            font-size: 3rem;
+            color: #ffffff;
+            text-shadow: 0 0 20px rgba(229, 228, 226, 0.8), 2px 2px 5px rgba(0, 0, 0, 0.9) !important;
+        }
+
+                
+     
+        .main-content {
+            flex-grow: 1;
+            padding: 60px 0;
+
+                                    background: rgba(15, 23, 42, 0.6) !important;
+
+                        backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+
+                        border-top: 1px solid rgba(229, 228, 226, 0.15);
+
+                        box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .image-wrapper {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .image-wrapper:hover img {
+            transform: scale(1.05);
+        }
+
+        .hero-subtitle {
+            color: rgba(229, 228, 226, 0.85) !important;
+                        font-size: 1.25rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+                .hero-hinweis {
+            color: rgba(245, 240, 225, 0.9);
+            font-size: 0.9rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        
+                .exposom-einfuehrung {
+            margin-top: 2.5rem;
+            padding: 1.8rem 2rem;
+            text-align: left;
+            background: rgba(10, 20, 15, 0.5);
+            border: 1px solid rgba(229, 228, 226, 0.2);
+            border-radius: 12px;
+            color: #f5f0e1;
+            opacity: 0.95;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+        }
+
+        .exposom-einfuehrung h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .exposom-einfuehrung p {
+            line-height: 1.7;
+            margin-bottom: 0.9rem;
+        }
+
+                .abschnitt {
+            margin-bottom: 3.5rem;
+        }
+
+        .abschnitt h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            color: #ffffff;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.2rem;
+            border-bottom: 1px solid rgba(64, 224, 208, 0.5);
+        }
+
+        .abschnitt p {
+            line-height: 1.75;
+            color: #f0eee9;
+        }
+
+                .neuroaesthetik-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .neuroaesthetik-text {
+            flex: 1 1 60%;
+            min-width: 280px;
+        }
+
+        .komorebi-seitenleiste {
+            flex: 1 1 30%;
+            min-width: 240px;
+            align-self: flex-start;
+            padding: 1.5rem;
+            background: rgba(20, 30, 55, 0.55);
+            border-left: 3px solid #40e0d0;
+            border-radius: 0 12px 12px 0;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+        }
+
+        .komorebi-seitenleiste h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: #ffffff;
+        }
+
+        .komorebi-seitenleiste p {
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .komorebi-seitenleiste a {
+            color: #40e0d0;
+        }
+
+                .eschen-tragoedie-hervorhebung {
+            padding: 2.2rem 2rem;
+            background: rgba(35, 45, 22, 0.88);
+            border: 1px solid rgba(229, 228, 226, 0.2);
+            border-radius: 12px;
+        }
+
+        .eschen-tragoedie-hervorhebung p {
+            font-size: 1.15rem;
+        }
+
+        .eschen-kernsatz {
+            display: block;
+            margin-top: 1rem;
+            font-style: italic;
+            font-size: 1.25rem;
+            color: #ffffff;
+        }
+
+                .wwf-schild-raster {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .schild-karte {
+            padding: 1.5rem;
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid rgba(229, 228, 226, 0.2);
+            border-radius: 12px;
+        }
+
+        .schild-karte h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: #40e0d0;
+            margin-bottom: 0.8rem;
+        }
+
+        .schild-karte p {
+            font-size: 1rem;
+            margin-bottom: 0;
+        }
+
+        .schild-zahl {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+                .quellenverzeichnis {
+            padding: 1.8rem 2rem;
+            background: rgba(5, 15, 10, 0.55);
+            border: 1px solid rgba(229, 228, 226, 0.15);
+            border-radius: 12px;
+        }
+
+        .quellenverzeichnis li {
+            margin-bottom: 1.2rem;
+            line-height: 1.6;
+            color: #f0eee9;
+        }
+
+        .quellenverzeichnis a {
+            color: #40e0d0;
+            word-break: break-all;
+        }
+
+        
+
+        footer {
+            background: rgba(5, 15, 10, 0.8) !important;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 15px 0;
+            margin-top: auto;
+                    }
+
+        .footer-link {
+            color: #e5e4e2 !important;
+            transition: 0.3s;
+        }
+
+        .footer-link:hover {
+            color: #40e0d0 !important;
+                        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+                    }
+
+        .footer-content .row {
+            margin: 10px 0;
+                        width: 100%;
+            display: flex;
+            justify-content: center;
+                    }
+
+        .footer-logo {
+            margin-top: 5px;
+            font-size: 1.6rem;
+            letter-spacing: 6px;
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+                        opacity: 0.8;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+        <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="./index.html">AURORA</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav"
+                aria-controls="mainNav" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav w-100 text-center "> 
+                                        <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="infoDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Infos
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="infoDropdown">
+                            <a class="dropdown-item" href="./blog.html">Info Blog</a>
+                            <a class="dropdown-item" href="./deepwoods.html">Deep
+                                Woods</a>
+                            <a class="dropdown-item" href="./baeumestadt.html">Bäume in der
+                                Stadt</a>
+                            <a class="dropdown-item" href="./waldundkunst.html">Wald und Kunst</a>
+                        </div>
+                    </li>
+                                        <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="scienceDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Wissenschaft
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="scienceDropdown">
+                            <a class="dropdown-item" href="./gesundheit.html">Wald und
+                                Gesundheit</a>
+                            <a class="dropdown-item" href="./krankheiten.html">Waldkrankheiten</a>
+                            <a class="dropdown-item" href="./klima.html">Wald und
+                                Klima</a>
+                        </div>
+                    </li>
+
+                                        <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="economyDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Wirtschaft
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="economyDropdown">
+                            <a class="dropdown-item" href="./ressourcen.html">Energie und
+                                Ressourcen</a>
+                            <a class="dropdown-item" href="./holzwirtschaft.html">Holzwirtschaft</a>
+                        </div>
+                    </li>
+
+                                        <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" href="#" id="simulationDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Eco-Simulation
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="simulationDropdown">
+                            <a class="dropdown-item" href="./sandbox.html">Sandbox</a>
+                            <a class="dropdown-item" href="./herausforderungen.html">Herausforderungen</a>
+                            <a class="dropdown-item" href="./ergebnisse.html">Ergebnisse</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./verlauf.html" target="_blank" rel="noopener">Verlauf und
+                            Merkliste</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+       
+        <header class="jumbotron-hero" style="--hero-bild: url('./Images-Projekt-Aurora/arboltroncogrande.jpg');">
+        <div class="container hero-container">
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                                        <h1 class="hero-title">Wald und Gesundheit</h1>
+                    
+                                        <p class="hero-subtitle mt-3">
+                        Zurück zu den Wurzeln – Der Wald als Ursprung und Zukunft unserer Lebensräume.
+                    </p>
+                    
+                                        <p class="hero-hinweis font-weight-light mt-2">
+                        Eine digitale Brücke zwischen Natur, Mensch und Technologie.
+                    </p>
+
+                                        <div class="exposom-einfuehrung">
+                        <h2>Der ganzheitliche Ansatz und das „One Health“-Konzept</h2>
+                        <p>Die Weltgesundheitsorganisation (WHO) definiert Gesundheit längst nicht mehr nur als das Fehlen von Krankheit oder Gebrechen, sondern als einen Zustand des vollständigen körperlichen, geistigen und sozialen Wohlbefindens. In diesem biopsychosozialen Kontext fungiert der Wald als unser erweitertes „Exposom“, das heißt die Gesamtheit aller Umwelteinflüsse, denen ein Mensch im Laufe seines Lebens ausgesetzt ist und die seine biologische Resilienz maßgeblich prägen.</p>
+                        <p>Aus dieser Perspektive heraus gewinnt das „One Health“-Prinzip eine fundamentale Bedeutung. Es bricht die traditionellen, isolierten Barrieren zwischen Humanmedizin, Veterinärmedizin und Forstwissenschaft auf. Die Gesundheit von Pflanzen, Tieren und Menschen ist unauflöslich miteinander verwoben und kodependent. Ein sterbendes Ökosystem bedroht somit unmittelbar das menschliche Überleben.</p>
+                        <p>Gleichzeitig stehen wir vor einem tiefen globalen Ressourcen-Paradoxon. Während rund 80 % der Weltbevölkerung für ihre primäre Gesundheitsversorgung auf traditionelle Medizin aus dem Wald angewiesen sind und etwa 66 % aller modernen pharmazeutischen Wirkstoffe aus Pflanzen der Entwicklungsländer stammen, verbleiben die wirtschaftlichen Gewinne und Patente fast ausschließlich im globalen Norden. Dieses Ungleichgewicht gefährdet nicht nur die soziale Gerechtigkeit, sondern entzieht den Hütern dieser Biodiversität auch die Lebensgrundlage für den Schutz intakter Ökosysteme.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+           <main class="main-content">
+        <div class="container">
+
+
+
+                        <section class="abschnitt">
+                <h2>Immersive Medizin und Neuroästhetik</h2>
+                <div class="neuroaesthetik-container">
+                    <div class="neuroaesthetik-text">
+                        <p>Das menschliche Gehirn reagiert evolutionär bedingt in Millisekunden auf die visuelle Struktur der Natur. Das Betrachten von Baumkronen und Geäst löst eine sogenannte fraktale Erholungskaskade aus. Die Verarbeitung dieser natürlichen, sich wiederholenden geometrischen Muster führt zu einer gezielten Aktivierung des medialen orbitofrontalen Kortex, der für Belohnungsgefühle zuständig ist. Parallel dazu kommt es zu einer signifikanten Deaktivierung der Amygdala, wodurch die Ausschüttung von Cortisol und Adrenalin gedrosselt und biochemischer Stress nachweislich reduziert wird.</p>
+                        <p>Verstärkt wird dieser Effekt durch die spezifische Chemie der Waldluft. Bäume, insbesondere Nadelhölzer, emittieren flüchtige organische Verbindungen, die in der Naturstoffchemie als Terpene klassifiziert werden und im breiteren Kontext als „Phytonzide“ bekannt sind. Das Einatmen dieser bioaktiven Substanzen stimuliert im menschlichen Körper die Produktion und Aktivität der natürlichen Killerzellen, auch bekannt als NK-Zellen unseres Immunsystems, was die körpereigene Abwehr gegen Tumore und Infekte nachhaltig stärkt.</p>
+                        <p>Aktuelle Forschungsergebnisse weisen darüber hinaus auf den „Komorebi-Effekt“ hin. Österreichische Feldstudien von Dr. Daniela Haluza zeigen ein faszinierendes Phänomen im Kontext der Biodiversität. Die objektive, rein wissenschaftlich gezählte Baumartenvielfalt führt bei kurzen Aufenthalten nicht zwangsläufig zu einer zusätzlichen physiologischen Stressreduktion. Entscheidend für das psychologische Wohlbefinden ist vielmehr die wahrgenommene Biodiversität, also das, was das Auge subjektiv erfasst. Das Spiel von Licht und Schatten, wenn Sonnenstrahlen durch das dichte Blätterdach brechen (Komorebi), moduliert die mentale Regeneration weitaus intensiver als die bloße botanische Diversität. Eine tiefgehende „ästhetische Erfahrung“ und die Lichtarchitektur des Waldes steuern somit direkt unsere physische Heilung.</p>
+                    </div>
+
+                                        <aside class="komorebi-seitenleiste">
+                        <h3>Licht, Kunst und Heilung</h3>
+                        <p>Wer vor einem Gemälde von Monet oder Caspar David Friedrich steht, kennt etwas Ähnliches wie im Wald: Das Spiel von Licht und Schatten beruhigt uns, noch bevor wir es in Worte fassen können.</p>
+                        <p>Die ästhetische Erfahrung wirkt also nicht nur im Kopf, sondern auch im Körper. Mehr dazu in unserem Essay <a href="./waldundkunst.html">Wald und Kunst</a>.</p>
+                    </aside>
+                </div>
+            </section>
+
+                        <section class="abschnitt">
+                <h2>Der Wald als immunologische „Impfung“</h2>
+                <div class="eschen-tragoedie-hervorhebung">
+                    <p>Die moderne Ökomedizin in Österreich liefert klare Belege dafür, dass der Wald wie eine subtile, permanente Schutzimpfung funktioniert. Die Waldluft und der Waldboden sind hochgradig mit einem einzigartigen, gesundheitsfördernden Mikrobiom aus spezialisierten Bakterien und Pilzen angereichert. Das Einatmen und der physische Kontakt mit dieser mikrobiellen Vielfalt trainiert das Immunsystem von Stadtkindern frühzeitig. Es fördert die immunologische Toleranz und beugt chronisch-entzündlichen Erkrankungen, Allergien sowie Asthma effektiv vor.</p>
+                    <p>Wie drastisch sich der Verlust einzelner Glieder in dieser Kette auf uns auswirkt, zeigt die ökologische Tragödie des Eschensterbens, welche in der großflächigen „Emerald Ash Borer“-Studie von Dr. Geoffrey Donovan untersucht wurde. Als ein invasiver Prachtkäfer in Nordamerika über 100 Millionen Eschen vernichtete, konnte unmittelbar darauf ein messbarer, statistisch signifikanter Anstieg der menschlichen Mortalität beobachtet werden. In den betroffenen Gemeinden stieg die Sterberate durch Herz-Kreislauf- und Atemwegserkrankungen nachweislich an. Ein epidemiologischer Zusammenhang liegt hierbei auf der Hand. Wenn wir davon sprechen, dass der Tod eines Baumes Menschenleben kostet, beschreibt dies die soziomedizinische Kausalität, dass das großflächige Aussterben einer dominanten Baumart die lokale Schadstofffilterung kollabieren lässt und den psychosomatischen Stresspegel einer gesamten Population derart erhöht, dass die statistische Gesamtsterblichkeit messbar ansteigt. <em class="eschen-kernsatz">Das Aussterben einer Baumart kostet also mit signifikanter Wahrscheinlichkeit zusätzlich auch Menschenleben.</em></p>
+                </div>
+            </section>
+
+                        <section class="abschnitt">
+                <h2>Der Umweltschild – Die 5 Kategorien des WWF</h2>
+                <p>Basierend auf den globalen Analysen des WWF lässt sich die Schutzfunktion des Waldes in fünf fundamentale Kategorien unterteilen:</p>
+                <div class="wwf-schild-raster">
+                    <div class="schild-karte">
+                        <h3>Nichtübertragbare Krankheiten (NCDs)</h3>
+                        <p>Das sogenannte „Green Exercise“ unter geschlossenen Baumkronen reguliert den Blutdruck, stabilisiert das Herz-Kreislauf-System und reduziert das Risiko für Typ-2-Diabetes. Zudem wird das psychische „Grübeln“ (Rumination) nachweislich blockiert.</p>
+                    </div>
+                    <div class="schild-karte">
+                        <h3>Umweltexposition und lebende Filter</h3>
+                        <p>Wälder filtern immense Mengen an gesundheitsschädlichem Feinstaub und Mikropartikeln aus der Atmosphäre. Besonders die Latschenkiefer (Pinus mugo) erweist sich durch ihre dichten, wachsbeschichteten Nadeln als hocheffizienter Luftfilter, der urbane Schadstoffe weitaus besser bindet als klassische Stadtbäume.</p>
+                    </div>
+                    <div class="schild-karte">
+                        <h3>Ernährung und Ernährungssicherheit</h3>
+                        <p>Intakte Waldökosysteme dienen als essenzielles Ernährungs-Sicherheitsnetz. Sie liefern hochqualitative Mikronährstoffe und Wildlebensmittel, die einen direkten Gegenpol zu den leeren Kalorien der industriellen Massenlandwirtschaft bilden.</p>
+                    </div>
+                    <div class="schild-karte">
+                        <h3>Physische Gefahren und thermische Pufferung</h3>
+                        <p>Hitzeperioden fordern weltweit immer mehr Menschenleben. Eine geschlossene Kronendeckung von mehr als 40 % senkt die lokale Temperatur im urbanen Raum um <span class="schild-zahl">bis zu 5°C</span> und schützt die Bevölkerung effektiv vor extremem Hitzestress.</p>
+                    </div>
+                    <div class="schild-karte">
+                        <h3>Infektionskrankheiten und Zoonosen</h3>
+                        <p>Die fortschreitende Entwaldung ist der Haupttreiber für rund <span class="schild-zahl">60 %</span> aller neu auftretenden Infektionskrankheiten beim Menschen. Bei verheerenden Ebola-Ausbrüchen wurde nachgewiesen, dass der Faktor des Waldverlustes eine relative Bedeutung von <span class="schild-zahl">über 60 %</span> einnahm. Die Zerstörung des Lebensraums zwingt Wildtiere wie Fledermäuse zur Abwanderung und führt zu direktem, infektiösen und fatalem Kontakt mit menschlichen Siedlungen.</p>
+                    </div>
+                </div>
+            </section>
+
+                        <section class="abschnitt">
+                <h2>Quellenverzeichnis</h2>
+                <div class="quellenverzeichnis">
+                    <ol>
+                        <li>
+                            <strong>Daniela Haluza (2025)</strong> – Insights from a 20-Minute Forest Visit on Well-Being<br>
+                            Spricht über die Reduktion von Speichelcortisol und negativen Emotionen durch kurze Aufenthalte im Wienerwald sowie über den Unterschied zwischen realer und wahrgenommener Biodiversität.<br>
+                            Link: <a href="https://www.meduniwien.ac.at/web/ueber-uns/news/2025/news-im-mai-2025/waldaufenthalt-reduziert-stress-in-nur-20-minuten/" target="_blank" rel="noopener">https://www.meduniwien.ac.at/web/ueber-uns/news/2025/news-im-mai-2025/waldaufenthalt-reduziert-stress-in-nur-20-minuten/</a>
+                        </li>
+                        <li>
+                            <strong>Geoffrey Donovan (2013)</strong> – The relationship between trees and human health: evidence from the spread of the emerald ash borer<br>
+                            Spricht über die großflächige Vernichtung von Eschen durch einen invasiven Schädling in den USA und den direkten statistischen Zusammenhang mit zusätzlichem Mortalitätsrisiko bei Herz- und Atemwegserkrankungen.<br>
+                            Link: <a href="https://pubmed.ncbi.nlm.nih.gov/23332329/" target="_blank" rel="noopener">https://pubmed.ncbi.nlm.nih.gov/23332329/</a>
+                        </li>
+                        <li>
+                            <strong>WWF Global Report (2021/2022)</strong> – Six things to know about forests and your health<br>
+                            Spricht über die fünf Hauptkategorien, wie Wälder die menschliche Gesundheit schützen, einschließlich der Eindämmung von Zoonosen und der Tatsache, dass Waldverlust zu über 60 % zu Ebola-Ausbrüchen beiträgt.<br>
+                            Link: <a href="https://www.worldwildlife.org/news/stories/six-things-to-know-about-forests-and-your-health/" target="_blank" rel="noopener">https://www.worldwildlife.org/news/stories/six-things-to-know-about-forests-and-your-health/</a><br>
+                            Weiterer Link: <a href="https://www.worldwildlife.org/news/press-releases/new-report-demonstrates-strong-scientific-link-between-forests-and-human-health/" target="_blank" rel="noopener">https://www.worldwildlife.org/news/press-releases/new-report-demonstrates-strong-scientific-link-between-forests-and-human-health/</a>
+                        </li>
+                    </ol>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+        <footer class="footer ">
+        <div class="container text-center">
+            <div class="footer-content">
+                <div class="footer-logo" style="font-family: 'Cinzel', serif;">AURORA</div>
+
+                <div class="row w-100">
+                    <div class="col-md-4"><a class="footer-link" href="./uebermich.html" >Über mich</a>
+                    </div>
+                    <div class="col-md-4"><a class="footer-link" href="./impressum.html" 
+                            rel="noopener">Impressum</a></div>
+                    <div class="col-md-4"><a class="footer-link" href="./datenschutz.html" >Datenschutz</a>
+                    </div>
+                </div>
+
+                <p class="copyright">&copy; 2026 Adair Araujo Valenzuela</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

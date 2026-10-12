@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurora - Deep Woods</title>
+
+    <!-- Bootstrap 4.6 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Urbanist:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+
+ 
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+
+    <style>
+     :root {
+            --gold-mystic: #d9c27e;
+            --turquoise-accent: #5eead4;
+            --muted-legible: #a3a8c9;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #0f172a;
+                         color: #e5e4e2;
+            background-image: url(./Images-Projekt-Aurora/Deep_Woods1.jpg);
+            background-repeat: no-repeat;
+                         background-size: cover;
+                         background-position: center;
+                         background-attachment: fixed;
+                         font-family: 'Urbanist', sans-serif;
+            overflow-x: hidden;
+        }
+
+                 .main-content {
+            flex-grow: 1;
+            padding: 60px 0;
+
+                         background: rgba(15, 23, 42, 0.6) !important;
+
+                         backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+
+                         border-top: 1px solid rgba(229, 228, 226, 0.15);
+
+                         box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.3);
+        }
+
+                 .navbar {
+            width: 100%;
+            background-color: rgba(15, 25, 45, 0.7) !important;
+            backdrop-filter: blur(10px);
+                         border-bottom: 1px solid rgba(229, 228, 226, 0.2);
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+                 .navbar-nav {
+            display: flex !important;
+            justify-content: space-around !important;
+            width: 100%;
+        }
+
+        .nav-link {
+            color: #e5e4e2 !important;
+                         transition: 0.4s ease;
+        }
+
+        .nav-link:hover {
+            color: #ffffff !important;
+            text-shadow: 0 0 12px rgba(229, 228, 226, 0.6) !important;
+            transform: scale(1.05);
+        }
+
+                 .navbar-toggler-icon {
+            filter: brightness(0) invert(1) drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) !important;
+        }
+
+        .navbar-brand {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            color: #40e0d0 !important;
+                         letter-spacing: 2px;
+        }
+
+
+        .dropdown-menu {
+            background-color: rgba(20, 30, 55, 0.85);
+                         backdrop-filter: blur(12px);
+            border: 1px solid rgba(229, 228, 226, 0.2);
+        }
+
+        .dropdown-item {
+            color: #e5e4e2 !important;
+        }
+
+        .dropdown-item:hover {
+            background-color: rgba(64, 224, 208, 0.2);
+                         color: #fff !important;
+        }
+
+                 .jumbotron-hero {
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: relative;
+            padding: 100px 0;
+            margin-bottom: 0;
+            border-radius: 0;
+            background: radial-gradient(circle at center,
+                    rgba(255, 255, 255, 0.1) 0%,
+                    rgba(10, 35, 28, 0.4) 40%,
+                    rgba(5, 15, 10, 0.7) 100%) !important;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+        }
+
+        .jumbotron-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+                         background-color: rgba(15, 23, 42, 0.35);
+            z-index: 1;
+        }
+
+        .hero-container {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+                 .hero-title {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 6px;
+            font-weight: 500;
+            font-size: 3rem;
+            color: #ffffff;
+            text-shadow: 0 0 20px rgba(229, 228, 226, 0.8), 2px 2px 5px rgba(0, 0, 0, 0.9) !important;
+        }
+
+        .image-wrapper {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .image-wrapper:hover img {
+            transform: scale(1.05);
+        }
+
+        .hero-subtitle {
+            color: rgba(229, 228, 226, 0.85) !important;
+                         font-size: 1.25rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+                 .text-muted {
+            color: var(--muted-legible) !important;
+        }
+
+                 .deepwoods-essay h3 {
+            color: var(--gold-mystic);
+            font-family: 'Cinzel', serif;
+            margin-top: 2.5rem;
+        }
+
+        .deepwoods-essay p {
+            text-align: justify;
+            line-height: 1.8;
+        }
+
+                 footer {
+            background: rgba(5, 15, 10, 0.8) !important;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 15px 0;
+            margin-top: auto;
+                     }
+
+        .footer-link {
+            color: #e5e4e2 !important;
+            transition: 0.3s;
+        }
+
+        .footer-link:hover {
+            color: #40e0d0 !important;
+                         text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+                     }
+
+        .footer-content .row {
+            margin: 10px 0;
+                         width: 100%;
+            display: flex;
+            justify-content: center;
+                     }
+
+        .footer-logo {
+            margin-top: 5px;
+            font-size: 1.6rem;
+            letter-spacing: 6px;
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            opacity: 0.6;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="./index.html">AURORA</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav"
+                aria-controls="mainNav" aria-label="Toggle navigation">
+
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav w-100 text-center "> <!-- ml-auto? -->
+
+       
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="infoDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Infos
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="infoDropdown">
+                            <a class="dropdown-item" href="./blog.html">Info Blog</a>
+                            <a class="dropdown-item" href="./deepwoods.html">Deep
+                                Woods</a>
+                            <a class="dropdown-item" href="./baeumestadt.html">Bäume in der
+                                Stadt</a>
+                            <a class="dropdown-item" href="./waldundkunst.html">Wald und Kunst</a>
+                        </div>
+                    </li>
+        
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="scienceDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Wissenschaft
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="scienceDropdown">
+                            <a class="dropdown-item" href="./gesundheit.html">Wald und
+                                Gesundheit</a>
+                            <a class="dropdown-item" href="./krankheiten.html">Waldkrankheiten</a>
+                            <a class="dropdown-item" href="./klima.html">Wald und
+                                Klima</a>
+                        </div>
+                    </li>
+
+      
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="economyDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Wirtschaft
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="economyDropdown">
+                            <a class="dropdown-item" href="./ressourcen.html">Energie und
+                                Ressourcen</a>
+                            <a class="dropdown-item" href="./holzwirtschaft.html">Holzwirtschaft</a>
+                        </div>
+                    </li>
+
+            
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="simulationDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Eco-Simulation
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="simulationDropdown">
+                
+                            <a class="dropdown-item" href="./sandbox.html">Sandbox</a>
+                            <a class="dropdown-item" href="./herausforderungen.html">Herausforderungen</a>
+                            <a class="dropdown-item" href="./ergebnisse.html">Ergebnisse</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./verlauf.html" target="_blank" rel="noopener">Verlauf und
+                            Merkliste</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+   
+
+    <header class="jumbotron-hero">
+        <div class="container hero-container">
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                  
+                    <h1 class="hero-title">Deep Woods</h1>
+
+                   
+                    <p class="hero-subtitle mt-3">
+                        Erforsche das Herz des Waldes
+                    </p>
+
+                  
+                    <p class="small text-muted font-weight-light mt-2" style="letter-spacing: 1px;">
+                        Natur, unser Ursprung
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+   
+    <main class="main-content">
+        <div class="container">
+
+            <section class="deepwoods-essay">
+
+                <h3>Globale Entstehung und die Evolution der Wälder</h3>
+                <p>
+                    Die Entstehung der ersten Waldgebiete war kein isoliertes biologisches Ereignis, sondern der Hauptmotor für die grundlegende Veränderung der geochemischen Bedingungen der Erde. Vor dem Devon-Zeitalter war die Erdoberfläche von niedrigwüchsiger Vegetation und flachen Wurzelsystemen geprägt.
+                 
+                    Vor etwa 385 Millionen Jahren markierte das Auftreten der Gattung Archaeopteris, jener urzeitlichen Baumfarne, die als erste Pioniere echtes Holz und tiefe Wurzelsysteme entwickelten, einen entscheidenden evolutionären Meilenstein. Diese Urwälder waren in der Lage, das lebendige Substrat des Bodens chemisch zu verändern.
+                </p>
+                <p>
+                    Dieser Prozess der massiven pflanzlichen Besiedlung veränderte die Erdatmosphäre radikal, indem enorme Mengen an Kohlendioxid gebunden und Sauerstoff in unvorhergesehenem Ausmaß freigesetzt wurden. Dies stabilisierte das globale Klima und ermöglichte erst die Evolution der landlebenden Fauna. Im Laufe der geologischen Epochen führten Temperaturschwankungen und die Verschiebung der tektonischen Platten zu einer ständigen Wandlung dieser Biome, wodurch die großen botanischen Übergänge eingeleitet wurden, die den Boden für die heutigen Ökosysteme bereiteten.
+                </p>
+
+                <h3>Die Entstehung und Entfaltung der Wälder in Europa</h3>
+                <p>
+                    Im Kontext Mitteleuropas ist die aktuelle Waldstruktur tief mit den Zyklen der pleistozänen Eiszeiten verbunden. Während des letzten glazialen Maximums war der Großteil des Nordens und Zentrums des Kontinents frei von Baumvegetation, was die Arten dazu zwang, sich in schützende Refugien auf der Iberischen, Italischen und Balkanhalbinsel zurückzuziehen. Mit dem Beginn des Holozäns und dem allmählichen Temperaturanstieg setzte das Phänomen der postglazialen Wiederbewaldung ein. Pionierarten wie Birke und Kiefer stabilisierten die Böden und ebneten den Weg für langlebigere und konkurrenzstärkere Bäume, allen voran die majestätische Rotbuche, wissenschaftlich Fagus sylvatica genannt, und die stolze Eiche.
+                </p>
+                <p>
+                    Dieser langsame, kraftvolle Prozess formte dichte und ununterbrochene Primärwälder, die einst das gesamte mitteleuropäische Becken wie ein grünes Meer bedeckten. Heute bewahrt das Wildnisgebiet Dürrenstein-Lassingtal
+                
+                    in Niederösterreich und der Steiermark den Urwald Rothwald, das größte verbliebene Primärwaldrelikt aus Fichte, Tanne und Buche im gesamten Alpenbogen. Es ist wichtig zu betonen, dass der strenge Schutz der UNESCO nicht dem Rothwald isoliert verliehen wurde, sondern im Rahmen der transnationalen Welterbestätte der alten Buchenwälder und Buchenurwälder der Karpaten und anderer Regionen Europas erfolgte. Diese Anerkennung unterstreicht den unschätzbaren Wert dieser unberührten Ökosysteme, in denen sich die natürliche Dynamik seit dem letzten Rückzug der mächtigen Eismassen ohne menschlichen Einfluss erhalten hat.
+                </p>
+
+
+                <div id="essay-deepwoods-mykorrhiza">
+                    <h3>Das unterirdische Geflecht und die vernetzte Kommunikation</h3>
+                    <p>
+                        Unter der sanften Laubschicht eines wilden Waldes operiert ein System biologischer Integration, das die traditionelle Vorstellung vom Baum als isoliertem Organismus vollkommen infrage stellt. Die symbiotische Assoziation zwischen Pflanzenwurzeln und den weitreichenden Netzwerken von Mykorrhizapilzen etabliert verborgene Kanäle für den Transfer von Substanzen und Informationen. In der populärwissenschaftlichen Literatur wurde dieses unterirdische Kommunikationsnetzwerk unter dem poetischen Begriff Wood Wide Web bekannt. Aus einer streng biologischen Perspektive lässt sich dieses Phänomen als ein komplexes biosemiotisches System des lebendigen Ressourcenaustauschs und der Warnsignale beschreiben.
+                    </p>
+                    <p>
+                        Über dieses unsichtbare Netzwerk übertragen Bäume nicht nur Kohlenhydrate, Wasser und Mineralien an jüngere oder geschwächte Exemplare, sondern übermitteln auch molekulare Signale und biochemische Verbindungen, sobald sie Bedrohungen wie Trockenheit oder den Befall durch phytophage (also blattfressende) Insekten wahrnehmen.
+                      
+                        Diese Interaktion zeigt, dass der Wald als kollektive und selbstregulierte Einheit funktioniert, in der das Überleben des gesamten Ökosystems über dem individuellen Wettbewerb steht.
+                    </p>
+                </div>
+
+                <div class="text-center mt-3 mb-5">
+               
+                    <button class="btn btn-outline-success ml-2"
+                        onclick="addToMerklisteById('essay-deepwoods-mykorrhiza', 'Deep Woods: Das unterirdische Geflecht')">
+
+                        <i class="fas fa-bookmark mr-1"></i> Zur Merkliste hinzufügen
+                    </button>
+                </div>
+
+                <div id="essay-deepwoods-kulturwandel">
+                    <h3>Der kulturhistorische Wandel in der Wahrnehmung des Waldes</h3>
+                    <p>
+                        Die Beziehung der menschlichen Gesellschaften zum geheimnisvollen Schatten des Waldes hat im Laufe der Geschichte eine radikale psychologische und symbolische Transformation erfahren. Während der Antike und des Mittelalters repräsentierten die dichten Waldmassen die eigentliche Grenze des Unbekannten.
+                       
+                        Es waren ungezähmte Räume, die sich der rechtlichen, politischen und religiösen Ordnung der Städte entzogen. Das kollektive Unbewusste projizierte seine tiefsten und verdrängten Ängste in die Dunkelheit des Waldes. Daraus entstand eine reiche Mythologie, in der das Dickicht als Heimat gefährlicher Kreaturen, Gesetzloser und chaotischer Kräfte galt. Diese Sichtweise wurde in den traditionellen europäischen Volksmärchen festgeschrieben, in denen sich der Wald als archetypischer Schauplatz des Verlierens, der Prüfung und der Gefahr manifestierte.
+                    </p>
+                    <p>
+                        Mit der Etablierung der Industriellen Revolution und der daraus resultierenden massiven Urbanisierung erlebte die Bedeutung des Waldes in der menschlichen Psyche eine absolute Umkehrung. Der einstige Ort des Schreckens verwandelte sich in der Epoche der Romantik in ein Territorium der tiefen Sehnsucht und des Begehrens. In der Gegenwart wird die vormalige Bedrohung als ein Zufluchtsort wahrgenommen, der angesichts der Reizüberflutung und des Stresses im städtischen Umfeld unentbehrlich geworden ist. Der Kontakt mit dem Wald wird heute gezielt als Werkzeug zur kognitiven Regeneration und zur behutsamen Regulierung des Nervensystems gesucht, wodurch ein ehemaliges Symbol feindseliger Isolation zu einem heilsamen Katalysator für mentale Gesundheit und ganzheitliches Wohlbefinden wird.
+                    </p>
+                </div>
+
+                <div class="text-center mt-3 mb-5">
+                    <button class="btn btn-outline-success ml-2"
+                        onclick="addToMerklisteById('essay-deepwoods-kulturwandel', 'Deep Woods: Der kulturhistorische Wandel')">
+                        <i class="fas fa-bookmark mr-1"></i> Zur Merkliste hinzufügen
+                    </button>
+                </div>
+
+                <div id="essay-deepwoods-klima">
+                    <h3>Globale Waldmassen und ihre atmosphärischen Funktionen</h3>
+                    <p>
+                        Die Relevanz unberührter Wälder geht weit über die Grenzen ihrer lokalen Geografien hinaus, da sie als Schlüsselkomponenten bei der Regulierung des globalen Klimas agieren. Ebenso wie sich die moderne Forstforschung in Österreich auf den notwendigen Umbau hin zu klimafitten Mischwäldern konzentriert, die den klimatischen Veränderungen standhalten können, existieren auf globaler Ebene Biome, die das Gleichgewicht der Biosphäre maßgeblich bestimmen.
+                    </p>
+                    <p>
+                        Der Amazonas Regenwald stellt das kritischste Beispiel dieser weltweiten Verflechtung dar. Weit entfernt davon, ein statischer Speicher der Biodiversität zu sein, fungiert das Amazonasbecken als eine kolossale thermodynamische Maschine. Durch die massive Evapotranspiration, also die lebenswichtige Eigenverdunstung seiner Bäume, werden täglich Milliarden Tonnen Wasser in die Atmosphäre gepumpt, was gewaltige Feuchtigkeitsströme erzeugt, die als fliegende Flüsse bekannt sind. Diese unsichtbaren atmosphärischen Ströme transportieren Wasserdampf über Tausende von Kilometern, regulieren das Regengefüge des gesamten südamerikanischen Kontinents und stabilisieren die globalen Klimaströmungen. Die Degradation dieser Primärsysteme bedeutet keinen isolierten ökologischen Verlust, sondern die direkte Störung des Wasserkreislaufs, der die Bewohnbarkeit unseres Planeten sichert.
+                    </p>
+                </div>
+
+                <div class="text-center mt-3 mb-5">
+                    <button class="btn btn-outline-success ml-2"
+                        onclick="addToMerklisteById('essay-deepwoods-klima', 'Deep Woods: Globale Waldmassen und ihre atmosphärischen Funktionen')">
+                        <i class="fas fa-bookmark mr-1"></i> Zur Merkliste hinzufügen
+                    </button>
+                </div>
+
+                <hr style="border-color: rgba(217, 194, 126, 0.3); margin: 3rem 0;">
+
+                <h3>Einleitung zum nächsten Block: Die Infrastruktur der Baumdaten</h3>
+                <p>
+                    <em>Artenkatalog und biosemiotische Profile</em><br>
+                    Das theoretische Verständnis der biologischen Prozesse des Waldes erfordert ein Fundament strukturierter Daten, um die Resilienz und das Verhalten jeder einzelnen Art präzise analysieren zu können. Das folgende Modul der Plattform interagiert direkt mit einer Datenbank im XML-Format. Diese bündelt die essenziellen botanischen Merkmale, den regionalen ökologischen Status sowie die Emissionskapazität flüchtiger organischer Verbindungen jener Bäume, die das sensible alpine Ökosystem prägen. Diese technische Infrastruktur ermöglicht es, wissenschaftliche Informationen für die dynamische Speicherung im Forschungsergebnis der Merkliste aufzubereiten.
+                </p>
+
+            </section>
+
+            <div id="xml-target" class="mt-4"></div>
+
+        </div>
+    </main>
+
+
+    <footer class="footer ">
+        <div class="container text-center">
+            <div class="footer-content">
+                <div class="footer-logo" style="font-family: 'Cinzel', serif;">AURORA</div>
+
+                <div class="row w-100">
+                    <div class="col-md-4"><a class="footer-link" href="./uebermich.html">Über mich</a>
+                    </div>
+                    <div class="col-md-4"><a class="footer-link" href="./impressum.html">Impressum</a></div>
+                    <div class="col-md-4"><a class="footer-link" href="./datenschutz.html">Datenschutz</a>
+                    </div>
+                </div>
+
+                <p class="copyright">&copy; 2026 Adair Araujo Valenzuela</p>
+            </div>
+        </div>
+    </footer>
+   <script src="main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="deepwoods">
+    <xs:complexType>
+      <xs:sequence>
+
+        <xs:element name="article" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="kategorie" type="xs:string" />
+              <xs:element name="titel" type="xs:string" />
+              <xs:element name="untertitel" type="xs:string" />
+              <xs:element name="text" type="xs:string" />
+              <xs:element name="tag">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="Wissenschaft" />
+                    <xs:enumeration value="Kultur" />
+                    <xs:enumeration value="Wirtschaft" />
+                    <xs:enumeration value="Ökologie" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+
+        <xs:element name="baumarten">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="baum" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="wissenschaftlicherName" type="xs:string" />
+                    <xs:element name="deutscherName" type="xs:string" />
+                    <xs:element name="oekologischerStatus" type="xs:string" />
+                    <xs:element name="klimaresistenz" type="xs:string" />
+                    <xs:element name="biosemiotischerFaktor">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="terpenEmission" type="xs:string" />
+                          <xs:element name="mykorrhizaVerbindung" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="kulturelleBedeutung" type="xs:string" />
+                  </xs:sequence>
+                  <xs:attribute name="id" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
